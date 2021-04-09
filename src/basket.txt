@@ -1,0 +1,45 @@
+/*
+u8g2.setCursor(0,15);
+u8g2.print("X:"); // write something to the internal memory
+u8g2.print(stick.getX());
+
+u8g2.setCursor(0,30);
+u8g2.print("Y:"); // write something to the internal memory
+u8g2.print(stick.getY());
+*/
+int x,y;
+
+
+
+x= map(stick.getX(),-100,100,-28,+28);
+y= map(stick.getY(),-100,100,-28,+28);
+
+
+x+=64;
+y+=32;
+u8g2.drawCircle(x,y,2);
+
+
+
+u8g2.setCursor(0,15);
+if (digitalRead(CROS_PIN)==LOW) u8g2.print("X");
+if (digitalRead(SQUARE_PIN)==LOW) u8g2.print("\u2610");
+if (digitalRead(CIRCLE_PIN)==LOW) u8g2.print("\u25ef");
+if (digitalRead(TRIANGLE_PIN)==LOW) u8g2.print("\u25b3");
+if (digitalRead(R3_PIN)==HIGH) u8g2.print("R3");
+
+
+
+  
+  
+  /*
+  if (stick.isLeft()) u8g2.drawStr(0,10,"LEFT");
+  if (stick.isUp()) u8g2.drawStr(0,20,"UP");
+  if (stick.isRight()) u8g2.drawStr(0,30,"RIGHT");
+  if (stick.isDown()) u8g2.drawStr(0,40,"DOWN");
+  */
+
+  /*Button CROSS(CROS_PIN,button_type_pulledUp,INPUT);
+Button button1(SQUARE_PIN,button_type_pulledUp,INPUT);
+Button button1(CIRCLE_PIN,button_type_pulledUp,INPUT);
+Button button1(TRIANGLE_PIN,button_type_pulledUp,INPUT);*/
